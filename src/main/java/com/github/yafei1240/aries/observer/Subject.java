@@ -35,7 +35,7 @@ public interface Subject<T> extends Serializable {
      *  通知所有观察者执行update方法
      * @param t
      */
-    default void notifyAll(T t) {
+    default void notifyAllObserver(T t) {
         getObservers().stream().forEach(_value -> _value.update(t));
     }
 
@@ -44,7 +44,7 @@ public interface Subject<T> extends Serializable {
      * @param t
      * @return
      */
-    default boolean notify(T t) {
+    default boolean notifyObserver(T t) {
         List<Observer> observers = getObservers();
         if (observers == null || observers.size() <= 0) {
             return false;
