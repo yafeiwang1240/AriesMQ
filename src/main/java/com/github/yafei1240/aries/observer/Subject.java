@@ -2,13 +2,14 @@ package com.github.yafei1240.aries.observer;
 
 import com.github.yafei1240.aries.common.Allocation;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  *  主题
  * @author wangyafei
  */
-public interface Subject<T> {
+public interface Subject<T> extends Serializable {
 
     /**
      * 在该主题下添加观察者
