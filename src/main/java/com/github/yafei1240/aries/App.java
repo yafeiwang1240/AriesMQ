@@ -1,5 +1,6 @@
 package com.github.yafei1240.aries;
 
+import com.github.yafei1240.aries.common.SystemEnvironment;
 import com.github.yafei1240.aries.observer.Observer;
 import com.github.yafei1240.aries.observer.Subject;
 
@@ -11,6 +12,10 @@ import java.util.List;
  */
 public class App {
     public static void main(String[] args) {
+        System.out.println(SystemEnvironment.getCpuNum());
+    }
+
+    public static void test() {
         System.out.println("Hello world");
         SubjectObject subjectObject = new SubjectObject();
         subjectObject.attach(new ObserverWorld());

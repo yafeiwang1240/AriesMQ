@@ -22,7 +22,7 @@ public interface Subject<T> extends Serializable {
 
     /**
      * 移除观察者 {@link java.util.ArrayList}
-     * 观察者需事先equal方法
+     * 观察者需实现equal方法
      *
      * @param observer
      */
