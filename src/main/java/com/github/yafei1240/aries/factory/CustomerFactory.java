@@ -4,7 +4,7 @@ import com.github.yafei1240.aries.client.record.CustomerRecord;
 import com.github.yafei1240.aries.client.Customer;
 import com.github.yafei1240.aries.client.MessageConsumer;
 import com.github.yafei1240.aries.client.impl.AriesCustomer;
-import com.github.yafei1240.aries.exception.InvalidTopicExcepiton;
+import com.github.yafei1240.aries.exception.InvalidTopicException;
 import com.github.yafei1240.aries.exception.NoSuchTopicException;
 
 /**
@@ -12,7 +12,7 @@ import com.github.yafei1240.aries.exception.NoSuchTopicException;
  * @author wangyafei
  */
 public class CustomerFactory {
-    public static <K, V> Customer<K, V> newCustomer(String topic, MessageConsumer<CustomerRecord<K, V>> consumer) throws NoSuchTopicException, InvalidTopicExcepiton {
+    public static <K, V> Customer<K, V> newCustomer(String topic, MessageConsumer<CustomerRecord<K, V>> consumer) throws NoSuchTopicException, InvalidTopicException {
         return new AriesCustomer<>(topic, consumer);
     }
 }

@@ -1,6 +1,6 @@
 package com.github.yafei1240.aries.client.impl;
 
-import com.github.yafei1240.aries.exception.InvalidTopicExcepiton;
+import com.github.yafei1240.aries.exception.InvalidTopicException;
 import com.github.yafei1240.aries.exception.NoSuchTopicException;
 import com.github.yafei1240.aries.observer.Observer;
 import com.github.yafei1240.aries.client.record.CustomerRecord;
@@ -16,16 +16,16 @@ public class AriesCustomer<K, V> implements Customer<K, V>, Observer<CustomerRec
     private String topic;
     private MessageConsumer<CustomerRecord<K, V>> consumer;
 
-    public AriesCustomer(String topic, MessageConsumer<CustomerRecord<K, V>> consumer) throws NoSuchTopicException, InvalidTopicExcepiton {
+    public AriesCustomer(String topic, MessageConsumer<CustomerRecord<K, V>> consumer) throws NoSuchTopicException, InvalidTopicException {
         this.topic = topic;
         this.consumer = consumer;
         newValidException();
         BrokerServer.register(this);
     }
 
-    private void newValidException() throws InvalidTopicExcepiton {
+    private void newValidException() throws InvalidTopicException {
         if (topic == null || topic.trim().equals("")) {
-            throw new InvalidTopicExcepiton("topic can not be empty");
+            throw new InvalidTopicException("topic can not be empty");
         }
     }
 

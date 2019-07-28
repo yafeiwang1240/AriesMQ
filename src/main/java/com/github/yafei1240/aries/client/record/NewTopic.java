@@ -1,6 +1,6 @@
 package com.github.yafei1240.aries.client.record;
 
-import com.github.yafei1240.aries.exception.InvalidTopicExcepiton;
+import com.github.yafei1240.aries.exception.InvalidTopicException;
 
 public class NewTopic {
     private String name;
@@ -9,9 +9,9 @@ public class NewTopic {
         this.name = name;
     }
 
-    private void newValidException() throws InvalidTopicExcepiton {
+    private void newValidException() throws InvalidTopicException {
         if (name == null || name.trim().equals("")) {
-            throw new InvalidTopicExcepiton("topic can not be empty");
+            throw new InvalidTopicException("topic can not be empty");
         }
     }
 

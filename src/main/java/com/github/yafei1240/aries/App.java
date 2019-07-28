@@ -1,6 +1,15 @@
 package com.github.yafei1240.aries;
 
-import com.github.yafei1240.aries.common.SystemEnvironment;
+import com.github.yafei1240.aries.client.Admin;
+import com.github.yafei1240.aries.client.Customer;
+import com.github.yafei1240.aries.client.Producer;
+import com.github.yafei1240.aries.client.record.NewTopic;
+import com.github.yafei1240.aries.client.record.ProducerRecord;
+import com.github.yafei1240.aries.exception.InvalidTopicException;
+import com.github.yafei1240.aries.exception.NoSuchTopicException;
+import com.github.yafei1240.aries.factory.AdminFactory;
+import com.github.yafei1240.aries.factory.CustomerFactory;
+import com.github.yafei1240.aries.factory.ProducerFactory;
 import com.github.yafei1240.aries.observer.Observer;
 import com.github.yafei1240.aries.observer.Subject;
 
@@ -13,7 +22,25 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
 //        System.out.println(SystemEnvironment.getCpuNum());
-        test();
+//        test();
+        try {
+            test1();
+        } catch (NoSuchTopicException e) {
+            e.printStackTrace();
+        } catch (InvalidTopicException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void test1() throws NoSuchTopicException, InvalidTopicException {
+        Admin admin = AdminFactory.newAdmin();
+        List<NewTopic> newTopics = new ArrayList<>();
+        newTopics.add(new NewTopic("k_hello_world"));
+        admin.createTopics(newTopics);
+        Producer<String, String> producer = ProducerFactory.newProducer();
+        Customer<String, String> customer = CustomerFactory.newCustomer("k_hello_world",
+                _value -> System.out.println(_value.value()));
+        producer.sendAsync(new ProducerRecord<>("k_hello_world", "hello", "world", System.currentTimeMillis()));
     }
 
     public static void test() {

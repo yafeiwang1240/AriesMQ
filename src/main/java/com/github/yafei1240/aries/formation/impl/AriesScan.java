@@ -57,15 +57,15 @@ public class AriesScan implements Scanning {
                     while (!workerQueue.isEmpty()) {
                         records.add(workerQueue.poll());
                     }
-                }
-                records.stream().forEach(_value -> {
-                    pool.execute(_value);
-                });
-                records.clear();
-                try {
-                    lock.wait();
-                } catch (InterruptedException e) {
-                    logger.warn(e.getMessage(), e);
+                    records.stream().forEach(_value -> {
+                        pool.execute(_value);
+                    });
+                    records.clear();
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        logger.warn(e.getMessage(), e);
+                    }
                 }
             }
         }
