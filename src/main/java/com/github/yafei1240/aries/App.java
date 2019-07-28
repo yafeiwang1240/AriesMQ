@@ -5,6 +5,7 @@ import com.github.yafei1240.aries.client.Customer;
 import com.github.yafei1240.aries.client.Producer;
 import com.github.yafei1240.aries.client.record.NewTopic;
 import com.github.yafei1240.aries.client.record.ProducerRecord;
+import com.github.yafei1240.aries.client.record.RecordMetaData;
 import com.github.yafei1240.aries.exception.InvalidTopicException;
 import com.github.yafei1240.aries.exception.NoSuchTopicException;
 import com.github.yafei1240.aries.factory.AdminFactory;
@@ -15,6 +16,8 @@ import com.github.yafei1240.aries.observer.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 /**
  * Hello World
@@ -29,10 +32,14 @@ public class App {
             e.printStackTrace();
         } catch (InvalidTopicException e) {
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void test1() throws NoSuchTopicException, InvalidTopicException {
+    public static void test1() throws NoSuchTopicException, InvalidTopicException, ExecutionException, InterruptedException {
         Admin admin = AdminFactory.newAdmin();
         List<NewTopic> newTopics = new ArrayList<>();
         newTopics.add(new NewTopic("k_hello_world"));
@@ -40,7 +47,11 @@ public class App {
         Producer<String, String> producer = ProducerFactory.newProducer();
         Customer<String, String> customer = CustomerFactory.newCustomer("k_hello_world",
                 _value -> System.out.println(_value.value()));
-        producer.sendAsync(new ProducerRecord<>("k_hello_world", "hello", "world", System.currentTimeMillis()));
+        Customer<String, String> customer1 = CustomerFactory.newCustomer("k_hello_world",
+                _value -> System.out.println(_value.value()));
+        Future<RecordMetaData> future = producer.sendAsyncRandom(new ProducerRecord<>("k_hello_world", "hello", "world", System.currentTimeMillis()));
+        RecordMetaData data = future.get();
+        System.out.println(data.topic());
     }
 
     public static void test() {

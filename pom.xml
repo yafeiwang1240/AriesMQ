@@ -6,7 +6,7 @@
 
     <groupId>com.github.yafeiwang1240</groupId>
     <artifactId>AriesMQ</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <name>AriesMQ</name>
     <description>支持异步和同步的消息中间件</description>

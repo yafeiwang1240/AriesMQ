@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6039dcba-51c8-487c-8992-188920bf9ab1" name="Default Changelist" comment="添加设计原图">
-      <change afterPath="$PROJECT_DIR$/.idea/AriesMQ.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="6039dcba-51c8-487c-8992-188920bf9ab1" name="Default Changelist" comment="解决wait()bug引起发布失败的问题">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/client/impl/AriesAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/client/impl/AriesAdmin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/client/impl/AriesCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/client/impl/AriesCustomer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/client/record/NewTopic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/client/record/NewTopic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/exception/InvalidTopicExcepiton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/exception/InvalidTopicException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/factory/CustomerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/factory/CustomerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/formation/impl/AriesScan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/github/yafei1240/aries/formation/impl/AriesScan.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -114,7 +105,9 @@
       <workItem from="1564193711821" duration="15781000" />
       <workItem from="1564240425928" duration="7312000" />
       <workItem from="1564275137413" duration="8965000" />
-      <workItem from="1564292482965" duration="1011000" />
+      <workItem from="1564292482965" duration="1555000" />
+      <workItem from="1564311618784" duration="210000" />
+      <workItem from="1564319597037" duration="534000" />
     </task>
     <task id="LOCAL-00001" summary="新建AriesMQ 轻量级消息中间件">
       <created>1564135598355</created>
@@ -165,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564285023700</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="解决wait()bug引起发布失败的问题">
+      <created>1564293730431</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1564293730431</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,7 +176,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -190,6 +192,7 @@
     <MESSAGE value="添加并行化方法" />
     <MESSAGE value="添加设计原图" />
     <MESSAGE value="1.0.0版，包含异步、同步消息发布接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.0.0版，包含异步、同步消息发布接口" />
+    <MESSAGE value="解决wait()bug引起发布失败的问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="解决wait()bug引起发布失败的问题" />
   </component>
 </project>
