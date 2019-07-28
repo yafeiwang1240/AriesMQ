@@ -12,7 +12,8 @@ import java.util.List;
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println(SystemEnvironment.getCpuNum());
+//        System.out.println(SystemEnvironment.getCpuNum());
+        test();
     }
 
     public static void test() {
